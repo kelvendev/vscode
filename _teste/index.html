@@ -74,12 +74,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 0px;
+            margin-top: -63px;
         }
     </style>
 </head>
 <body>
-    <audio id="audio-player" class="music-player" controls autoplay>
+    <audio id="audio-player" class="music-player" controls>
         <source src="https://eu-central.storage.cloudconvert.com/tasks/f454fdaf-5e65-402b-8323-7833f3fb7ea5/videoplayback.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=cloudconvert-production%2F20240731%2Ffra%2Fs3%2Faws4_request&amp;X-Amz-Date=20240731T162942Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=6e03ef11f1a6359eb11d9dda02e1144d90efc2e1fd57e46590e585d1a01c99d6&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=inline%3B%20filename%3D%22videoplayback.mp3%22&amp;response-content-type=audio%2Fmpeg&amp;x-id=GetObject" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -93,12 +93,13 @@
         <img src="https://i.ibb.co/t2Rt7Gy/img6.jpg" alt="imagem 6" class="img hidden">
         <img src="https://i.ibb.co/1b5PJm0/img7.jpg" alt="imagem 7" class="img hidden">
         <img src="https://i.ibb.co/Bqr21jX/img8.jpg" alt="imagem 8" class="img hidden">
-        <i class='bx bx-heart-circle heart-button' onclick="showNextImage()"></i>
+        <i class='bx bx-heart-circle heart-button' onclick="handleHeartButtonClick()"></i>
         <h4>Clique no coração</h4>
     </div>
     <script>
         let currentImageIndex = 0;
         const images = document.querySelectorAll('.img');
+        const audioPlayer = document.getElementById('audio-player');
 
         function showNextImage() {
             images[currentImageIndex].classList.add('hidden');
@@ -106,13 +107,12 @@
             images[currentImageIndex].classList.remove('hidden');
         }
 
-        // Tentar forçar a reprodução automática
-        document.addEventListener('DOMContentLoaded', function() {
-            const audioPlayer = document.getElementById('audio-player');
+        function handleHeartButtonClick() {
+            showNextImage();
             audioPlayer.play().catch(error => {
                 console.log('Autoplay foi bloqueado, precisa de interação do usuário.');
             });
-        });
+        }
     </script>
 </body>
 </html>
