@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mensagem ❤</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background: url("img9.jpg");
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #dd0000;
+            text-shadow: 1px 5px 5px #000;
+            margin-top: 50px;
+            font-family: 'Dancing Script', cursive;
+        }
+        img {
+            display: block;
+            width: 30%;
+            height: auto;
+            margin: 20px auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .heart-button {
+            display: block;
+            margin: 20px auto;
+            font-size: 3em;
+            color: #dd0000;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>oi</h1>
+    <h1>Mensagem para meu amor</h1>
+    <div class="div-imagens">
+        <img src="img1.jpg" alt="imagem 1" class="img">
+        <img src="img2.jpg" alt="imagem 2" class="img hidden">
+        <img src="img3.jpg" alt="imagem 3" class="img hidden">
+        <img src="img4.jpg" alt="imagem 4" class="img hidden">
+        <img src="img5.jpg" alt="imagem 5" class="img hidden">
+        <img src="img6.jpg" alt="imagem 6" class="img hidden">
+        <img src="img7.jpg" alt="imagem 7" class="img hidden">
+        <img src="img8.jpg" alt="imagem 8" class="img hidden">
+        <i class='bx bxs-heart-circle heart-button' onclick="showNextImage()"></i>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.img');
+
+        function showNextImage() {
+            images[currentImageIndex].classList.add('hidden');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
